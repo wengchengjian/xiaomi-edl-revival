@@ -1,11 +1,13 @@
-# munch-9008-revival
+# xiaomi-edl-revival
 
-Redmi K40S (codename `munch`, Snapdragon 870 / SM8250-AC) 9008 深刷救砖工具集与完整技术复盘。
+小米/红米高通机型 9008 (EDL) 深刷救砖工具集与安全机制实测地图。
 
-从"The System has been destroyed"红屏死机，到 EDL 全量重建、系统完全恢复的全过程沉淀。
+首发完整案例：Redmi K40S (codename `munch`, Snapdragon 870 / SM8250-AC)——
+从"The System has been destroyed"红屏死机，到 EDL 全量重建、系统完全恢复。
 
-> **适用对象**：小米/红米高通机型（尤其 SM8250 平台）变砖救援、EDL 深刷研究者。
-> 所有流程在一台量产 munch 上完整实测（2026-11）。
+> **适用对象**：小米/红米高通机型（重点 SM8250 平台）变砖救援、EDL 深刷研究。
+> 所有流程在一台量产 munch 上完整实测（2026-11）；后续将持续扩展其他机型的
+> 偏移表、loader 与实测记录——欢迎按本文档的流程框架贡献新机型数据。
 
 ---
 
@@ -119,7 +121,8 @@ fuse (物理烧死，含 OEM 公钥哈希)          ← one-time programmable，
 2. **loader 必须与机型匹配**：`prog_ufs_firehose_sm8250_ddr.elf`（SM8250 通用，Xiaomi EDL
    Auth 自动通过）；其他机型从对应线刷包取
 3. **刷写偏移必须与设备真实 GPT 核对**：先 EDL 读出各 LUN 的 GPT dump 逐项比对（脚本中的
-   sector 偏移是 munch 实测值，其他机型不可直接使用）
+   sector 偏移是 munch 实测值，其他机型必须重新提取，不可直接使用——各机型偏移表是本项目
+   计划持续收录的核心资产）
 4. **永远保留"恢复脚本 + 官方原件"再动手**：任何实验分区都可被官方原件秒级覆盖回去
 5. 电量充足、电池接好、USB 线稳固——三个变量排除后 UFS 才稳定
 
